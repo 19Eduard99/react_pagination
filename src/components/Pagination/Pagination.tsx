@@ -29,7 +29,7 @@ export const Pagination = ({
           className="page-link"
           href="#prev"
           aria-disabled={`${currentPage === 1 ? 'true' : 'false'}`}
-          onClick={(e: React.MouseEvent) => {
+          onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
             e.preventDefault();
             handlePageChange(currentPage - 1);
           }}
@@ -47,6 +47,7 @@ export const Pagination = ({
             className="page-link"
             href={`#${page}`}
             onClick={e => {
+              e.preventDefault();
               const href = (e.target as HTMLAnchorElement).href.split('#')[1];
 
               onPageChange(Number(href));

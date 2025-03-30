@@ -33,7 +33,7 @@ export const App: React.FC = () => {
             id="perPageSelector"
             className="form-control"
             value={selectedValue}
-            onChange={e => {
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
               setCurrentPage(1);
               setSelectedValue(e.target.value);
             }}
@@ -54,7 +54,7 @@ export const App: React.FC = () => {
         total={items.length}
         perPage={perPage}
         currentPage={currentPage}
-        onPageChange={(page: number) => {
+        onPageChange={page => {
           setCurrentPage(page);
         }}
       />
